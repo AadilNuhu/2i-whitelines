@@ -1,3 +1,4 @@
+import { FaCar, FaShoppingBag, FaGlobe } from "react-icons/fa";
 const Home = () => {
   return (
     <div className="font-sans text-white bg-gray-900">
@@ -29,7 +30,7 @@ const Home = () => {
       </section>
 
       {/* ================= SERVICES SECTION ================= */}
-      <section className="bg-white text-deepBlue py-24 px-6">
+      <section className="bg-gray-200 text-[#0A1F44] py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
             Our Services
@@ -39,24 +40,24 @@ const Home = () => {
           </p>
 
           <div className="grid gap-10 md:grid-cols-3">
-            <div className="group rounded-2xl bg-white p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300">
-              <div className="text-4xl mb-4">🚗</div>
+            <div className="group flex flex-col items-center rounded-2xl bg-white p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300">
+              <div className="text-4xl mb-4"><FaCar /></div>
               <h3 className="text-xl font-semibold mb-3">Vehicle Rentals</h3>
               <p className="text-gray-600">
                 Comfortable, reliable vehicles for personal and corporate travel.
               </p>
             </div>
 
-            <div className="group rounded-2xl bg-white p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300">
-              <div className="text-4xl mb-4">💼</div>
+            <div className="group flex flex-col items-center rounded-2xl bg-white p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300">
+              <div className="text-4xl mb-4"><FaShoppingBag /></div>
               <h3 className="text-xl font-semibold mb-3">Vehicle Sales</h3>
               <p className="text-gray-600">
                 Carefully inspected automobiles at competitive prices you can trust.
               </p>
             </div>
 
-            <div className="group rounded-2xl bg-white p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300">
-              <div className="text-4xl mb-4">🌍</div>
+            <div className="group flex flex-col items-center rounded-2xl bg-white p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300">
+              <div className="text-4xl mb-4"><FaGlobe /></div>
               <h3 className="text-xl font-semibold mb-3">Vehicle Imports</h3>
               <p className="text-gray-600">
                 Premium vehicle imports with complete documentation and support.
@@ -68,7 +69,7 @@ const Home = () => {
 
       {/* ================= CTA SECTION ================= */}
       <section className="relative bg-lightBlue py-20 px-6 text-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 opacity-90"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-blue-600 to-blue-500 opacity-90"></div>
 
         <div className="relative z-10 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -77,7 +78,7 @@ const Home = () => {
           <p className="mb-10 text-blue-100 text-lg">
             Whether you’re renting, buying, or importing — we make the journey seamless.
           </p>
-          <button className="bg-white text-deepBlue px-10 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300">
+          <button className="bg-white text-blue-900 px-10 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300">
             Get Started
           </button>
         </div>
