@@ -1,48 +1,64 @@
 import { useState } from "react";
-// import logo from "../assets/logo.jpg";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#0A1F44] backdrop-blur border-b border-neutral-200">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex h-18 items-center justify-between">
           {/* Logo */}
-          <a href="/" className="font-bold text-white text-md md:text-xl">
-            {/* <img
-            //   src={logo}
-              alt="Company logo"
-              className="
-                h-16 w-auto object-contain
-                scale-115
-            "
-            /> */}
+          <Link to="/" className="font-bold text-white text-md md:text-xl hover:text-[#4DA3FF] transition">
             2i Whitelines
-          </a>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-10 text-md font-medium text-shadow-xs text-white">
-            <a href="/" className="hover:text-[#4DA3FF] transition">
+            <Link 
+              to="/" 
+              className={`transition ${isActive('/') ? 'text-[#4DA3FF]' : 'hover:text-[#4DA3FF]'}`}
+            >
               Home
-            </a>
-            <a href="#about" className="hover:text-[#4DA3FF] transition">
+            </Link>
+            <Link 
+              to="/rentals" 
+              className={`transition ${isActive('/rentals') ? 'text-[#4DA3FF]' : 'hover:text-[#4DA3FF]'}`}
+            >
               Rentals
-            </a>
-            <a href="#about" className="hover:text-[#4DA3FF] transition">
+            </Link>
+            <Link 
+              to="/sales" 
+              className={`transition ${isActive('/sales') ? 'text-[#4DA3FF]' : 'hover:text-[#4DA3FF]'}`}
+            >
               Sales
-            </a>
-            <a href="#about" className="hover:text-[#4DA3FF] transition">
+            </Link>
+            <Link 
+              to="/import" 
+              className={`transition ${isActive('/import') ? 'text-[#4DA3FF]' : 'hover:text-[#4DA3FF]'}`}
+            >
               Import
-            </a>
-            <a href="#service" className="hover:text-[#4DA3FF] transition">
+            </Link>
+            <Link 
+              to="/about" 
+              className={`transition ${isActive('/about') ? 'text-[#4DA3FF]' : 'hover:text-[#4DA3FF]'}`}
+            >
               About Us
-            </a>
+            </Link>
           </div>
 
-          <a href="#contact" className="bg-[#4DA3FF] hidden md:flex text-white font-medium px-4 py-2 rounded-full hover:bg-blue-500 transition">
-              Contact
-            </a>
+          <Link 
+            to="/contact" 
+            className="bg-[#4DA3FF] hidden md:flex text-white font-medium px-4 py-2 rounded-full hover:bg-blue-500 transition"
+          >
+            Contact
+          </Link>
 
           {/* Mobile Toggle */}
           <button
@@ -65,24 +81,48 @@ const Navbar = () => {
         }`}
       >
         <div className="px-6 pb-6 flex flex-col items-center pt-2 space-y-4 text-sm font-medium text-white">
-          <a href="/" className="block hover:text-neutral-900 transition">
+          <Link 
+            to="/" 
+            className={`block transition ${isActive('/') ? 'text-[#4DA3FF]' : 'hover:text-[#4DA3FF]'}`}
+            onClick={() => setIsOpen(false)}
+          >
             Home
-          </a>
-          <a href="/rentals" className="block hover:text-neutral-900 transition">
+          </Link>
+          <Link 
+            to="/rentals" 
+            className={`block transition ${isActive('/rentals') ? 'text-[#4DA3FF]' : 'hover:text-[#4DA3FF]'}`}
+            onClick={() => setIsOpen(false)}
+          >
             Rentals
-          </a>
-          <a href="/sales" className="block hover:text-neutral-900 transition">
+          </Link>
+          <Link 
+            to="/sales" 
+            className={`block transition ${isActive('/sales') ? 'text-[#4DA3FF]' : 'hover:text-[#4DA3FF]'}`}
+            onClick={() => setIsOpen(false)}
+          >
             Sales
-          </a>
-          <a href="/import" className="block hover:text-neutral-900 transition">
+          </Link>
+          <Link 
+            to="/import" 
+            className={`block transition ${isActive('/import') ? 'text-[#4DA3FF]' : 'hover:text-[#4DA3FF]'}`}
+            onClick={() => setIsOpen(false)}
+          >
             Import
-          </a>
-          <a href="/about" className="block hover:text-neutral-900 transition">
+          </Link>
+          <Link 
+            to="/about" 
+            className={`block transition ${isActive('/about') ? 'text-[#4DA3FF]' : 'hover:text-[#4DA3FF]'}`}
+            onClick={() => setIsOpen(false)}
+          >
             About Us
-          </a>
-          <a href="/contact" className="block bg-[#4DA3FF] p-2 rounded-full text-center w-20 hover:text-neutral-900 transition">
+          </Link>
+          <Link 
+            to="/contact" 
+            className="block bg-[#4DA3FF] p-2 rounded-full text-center w-20 hover:bg-blue-500 transition"
+            onClick={() => setIsOpen(false)}
+          >
             Contact
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
