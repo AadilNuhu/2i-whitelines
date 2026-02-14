@@ -112,7 +112,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="flex flex-col items-center text-center">
                 <div className="text-4xl text-[#4DA3FF] mb-4">
                   <stat.icon />
                 </div>
@@ -129,7 +129,7 @@ const About = () => {
         <h2 className="text-3xl font-bold text-center text-[#0A1F44] mb-12">Our Core Values</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((value, index) => (
-            <div key={index} className="text-center">
+            <div key={index} className="flex flex-col items-center text-center">
               <div className="text-3xl text-[#4DA3FF] mb-4">
                 <value.icon />
               </div>

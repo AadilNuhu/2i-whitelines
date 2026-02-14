@@ -66,7 +66,7 @@ const Home = () => {
   return (
     <div className="font-sans text-white bg-gray-900">
       {/* ================= HERO SECTION ================= */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 bg-[url('https://images.unsplash.com/photo-1542362567-b07e54358753?w=1920&h=1080&fit=crop')] bg-cover bg-center">
+      <section className="relative min-h-screen flex items-center justify-center px-6 bg-[url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=900&h=1200&fit=crop')] md:bg-[url('https://images.unsplash.com/photo-1542362567-b07e54358753?w=1920&h=1080&fit=crop')] bg-cover bg-center">
         {/* Overlay */}
         <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/60 to-black/80" />
 

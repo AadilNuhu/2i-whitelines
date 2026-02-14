@@ -14,20 +14,20 @@ const Contact = () => {
     {
       icon: FaPhone,
       title: 'Phone',
-      details: '+1 (555) 123-4567',
+      details: '+233 (553) 552-490',
       description: 'Mon-Fri: 8AM-6PM'
     },
     {
       icon: FaEnvelope,
       title: 'Email',
-      details: 'info@2iwhitelines.com',
+      details: 't2iwhitelines@gmail.com',
       description: 'We respond within 24 hours'
     },
     {
       icon: FaMapMarkerAlt,
       title: 'Address',
-      details: '123 Business Ave, Suite 100',
-      description: 'New York, NY 10001'
+      details: 'century road / Zongo junction',
+      description: 'Accra Ghana'
     },
     {
       icon: FaClock,
@@ -46,7 +46,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#0A1F44] to-[#1a3a6a] text-white py-16">
+      <div className="bg-linear-to-r from-[#0A1F44] to-[#1a3a6a] text-white py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-gray-200">Get in touch with our team for any inquiries</p>

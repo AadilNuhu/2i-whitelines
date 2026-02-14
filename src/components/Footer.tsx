@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4 text-[#4DA3FF]">2i Whitelines</h3>
             <p className="text-gray-300 mb-4">
-              Your trusted partner in automotive excellence since 2014.
+              Your trusted partner in automotive excellence since 2023.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-[#4DA3FF] transition">
@@ -58,15 +58,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center text-gray-300">
                 <FaPhone className="mr-3 text-[#4DA3FF]" />
-                <span>+1 (555) 123-4567</span>
+                <span>+233 (553) 552-490</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <FaEnvelope className="mr-3 text-[#4DA3FF]" />
-                <span>info@2iwhitelines.com</span>
+                <span>t2iwhitelines@gmail.com</span>
               </div>
               <div className="flex items-start text-gray-300">
                 <FaMapMarkerAlt className="mr-3 text-[#4DA3FF] mt-1" />
-                <span>123 Business Ave, Suite 100<br />New York, NY 10001</span>
+                <span>century road / Zongo junction<br />Accra Ghana</span>
               </div>
             </div>
           </div>
