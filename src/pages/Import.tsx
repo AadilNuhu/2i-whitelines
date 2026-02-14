@@ -74,7 +74,7 @@ const Import = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#0A1F44] to-[#1a3a6a] text-white py-16">
+      <div className="bg-linear-to-r from-[#0A1F44] to-[#1a3a6a] text-white py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Vehicle Import Services</h1>
           <p className="text-xl text-gray-200">Import your dream vehicle from anywhere in the world</p>
@@ -113,7 +113,7 @@ const Import = () => {
           <h2 className="text-3xl font-bold text-center text-[#0A1F44] mb-12">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <div key={step.number} className="text-center">
+              <div key={index} className="text-center">
                 <div className="relative mb-6">
                   <img 
                     src={step.image} 

@@ -1,4 +1,5 @@
 import { FaUsers, FaAward, FaGlobe, FaHeart, FaCheckCircle, FaQuoteLeft } from 'react-icons/fa'
+import img from "../../public/bg.jpg"
 
 const About = () => {
   const stats = [
@@ -78,10 +79,10 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#0A1F44] to-[#1a3a6a] text-white py-16">
+      <div className="bg-linear-to-r from-[#0A1F44] to-[#1a3a6a] text-white py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About 2i Whitelines</h1>
-          <p className="text-xl text-gray-200">Your trusted partner in automotive excellence since 2014</p>
+          <p className="text-xl text-gray-200">Your trusted partner in automotive excellence since 2023</p>
         </div>
       </div>
 
@@ -91,7 +92,7 @@ const About = () => {
           <div>
             <h2 className="text-3xl font-bold text-[#0A1F44] mb-6">Our Story</h2>
             <p className="text-gray-600 mb-4">
-              Founded in 2014, 2i Whitelines Enterprise began with a simple mission: to provide exceptional automotive services that put customers first. What started as a small rental service has grown into a comprehensive automotive solutions provider.
+              Founded in 2023, 2i Whitelines Enterprise began with a simple mission: to provide exceptional automotive services that put customers first. What started as a small rental service has grown into a comprehensive automotive solutions provider.
             </p>
             <p className="text-gray-600 mb-4">
               Today, we offer vehicle rentals, sales, and import services, maintaining the same commitment to quality, transparency, and customer satisfaction that defined us from day one.
@@ -101,7 +102,7 @@ const About = () => {
             </p>
           </div>
           <div className="bg-gray-200 rounded-xl h-96 flex items-center justify-center">
-            <span className="text-gray-500">Company Image</span>
+            <img src={img} className='w-full h-full object-cover rounded-xl' alt="Company Background" />
           </div>
         </div>
       </div>
