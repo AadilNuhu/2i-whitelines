@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaCar, FaSearch, FaDollarSign, FaCalendarAlt, FaTachometerAlt, FaStar, FaFilter } from 'react-icons/fa'
+import { FaSearch, FaCalendarAlt, FaTachometerAlt, FaFilter } from 'react-icons/fa'
 
 const Sales = () => {
   const [selectedBrand, setSelectedBrand] = useState('all')
@@ -138,7 +138,7 @@ const Sales = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#0A1F44] to-[#1a3a6a] text-white py-16">
+      <div className="bg-linear-to-r from-[#0A1F44] to-[#1a3a6a] text-white py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Premium Vehicle Sales</h1>
           <p className="text-xl text-gray-200">Discover our curated collection of quality pre-owned vehicles</p>
