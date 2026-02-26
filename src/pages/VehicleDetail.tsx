@@ -1,8 +1,11 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import { FaCar, FaUsers, FaGasPump, FaCalendarAlt, FaStar, FaPhone, FaEnvelope, FaArrowLeft, FaCheckCircle } from 'react-icons/fa'
 
 const VehicleDetail = () => {
-  const { id, type } = useParams()
+  const { id } = useParams()
+  const location = useLocation()
+  // Determine whether this page is under "sales" or "rentals" based on the URL
+  const type = location.pathname.includes('/sales') ? 'sales' : 'rentals'
 
   // Mock vehicle data - in real app this would come from API
   const getVehicleData = () => {

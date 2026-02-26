@@ -1,11 +1,11 @@
 import { FaUsers, FaAward, FaGlobe, FaHeart, FaCheckCircle, FaQuoteLeft } from 'react-icons/fa'
-import img from "../../public/bg.jpg"
+import img from "../assets/bg.jpg"
 
 const About = () => {
   const stats = [
-    { number: '10+', label: 'Years in Business', icon: FaAward },
-    { number: '5000+', label: 'Happy Customers', icon: FaUsers },
-    { number: '50+', label: 'Vehicle Models', icon: FaGlobe },
+    { number: '3+', label: 'Years in Business', icon: FaAward },
+    { number: '500+', label: 'Happy Customers', icon: FaUsers },
+    { number: '30+', label: 'Vehicle Models', icon: FaGlobe },
     { number: '98%', label: 'Satisfaction Rate', icon: FaHeart }
   ]
 
@@ -55,25 +55,10 @@ const About = () => {
 
   const team = [
     {
-      name: 'John Smith',
+      name: 'Tajudeen',
       role: 'Founder & CEO',
-      experience: '15+ years in automotive industry'
+      experience: '9+ years in automotive industry'
     },
-    {
-      name: 'Maria Garcia',
-      role: 'Operations Manager',
-      experience: '10+ years in logistics'
-    },
-    {
-      name: 'David Kim',
-      role: 'Sales Director',
-      experience: '12+ years in automotive sales'
-    },
-    {
-      name: 'Lisa Anderson',
-      role: 'Customer Service Lead',
-      experience: '8+ years in customer relations'
-    }
   ]
 
   return (
@@ -143,8 +128,8 @@ const About = () => {
       {/* Team */}
       <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-[#0A1F44] mb-12">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <h2 className="text-3xl font-bold text-center text-[#0A1F44] mb-12">Meet Our Founder</h2>
+          <div className="">
             {team.map((member, index) => (
               <div key={index} className="text-center">
                 <div className="bg-gray-200 rounded-full w-32 h-32 mx-auto mb-4 flex items-center justify-center">

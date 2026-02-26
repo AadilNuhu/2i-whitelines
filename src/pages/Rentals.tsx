@@ -4,6 +4,9 @@ import { FaCar, FaSearch, FaCalendarAlt, FaUsers, FaGasPump, FaStar } from 'reac
 
 const Rentals = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const [searchText, setSearchText] = useState('')
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
   
   const vehicles = [
     {
@@ -125,9 +128,21 @@ const Rentals = () => {
     { id: 'luxury', name: 'Luxury', icon: FaCar }
   ]
 
-  const filteredVehicles = selectedCategory === 'all' 
-    ? vehicles 
-    : vehicles.filter(v => v.category === selectedCategory)
+  const filteredVehicles = vehicles.filter(v => {
+    const matchesCategory = selectedCategory === 'all' || v.category === selectedCategory
+    const q = searchText.trim().toLowerCase()
+    const matchesQuery =
+      q === '' ||
+      v.name.toLowerCase().includes(q) ||
+      v.fuel.toLowerCase().includes(q) ||
+      v.transmission.toLowerCase().includes(q) ||
+      v.category.toLowerCase().includes(q)
+
+    // If both dates are provided, require the vehicle to be available (simple availability check)
+    const matchesDates = startDate === '' || endDate === '' ? true : v.available
+
+    return matchesCategory && matchesQuery && matchesDates
+  })
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">

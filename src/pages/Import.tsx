@@ -97,9 +97,6 @@ const Import = () => {
                 <p className="text-gray-600 mb-4">From {vehicle.origin}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-[#4DA3FF]">{vehicle.price}</span>
-                  <button className="bg-[#4DA3FF] text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition">
-                    Get Quote
-                  </button>
                 </div>
               </div>
             </div>
@@ -180,7 +177,7 @@ const Import = () => {
 
       {/* Quote Form */}
       <div className="max-w-3xl mx-auto px-6 py-16">
-        <div className="bg-white rounded-xl shadow-lg p-8">
+        <div className="bg-gray-100 rounded-xl border border-blue-300 shadow-xl p-8">
           <h2 className="text-2xl font-bold text-[#0A1F44] mb-6">Get a Quote</h2>
           <form className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
