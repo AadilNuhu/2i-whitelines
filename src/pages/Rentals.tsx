@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaCar, FaSearch, FaCalendarAlt, FaUsers, FaGasPump, FaStar } from 'react-icons/fa'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FaCar, FaSearch, FaCalendarAlt, FaUsers, FaGasPump, FaStar, FaCogs } from 'react-icons/fa'
 
 const Rentals = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -14,7 +15,7 @@ const Rentals = () => {
       name: 'Toyota Camry 2023',
       category: 'sedan',
       price: 65,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT66GeFIL-sRmRJ0_IJA5kOgn_kDhERzl1HQ&s',
+      image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=600&h=400&fit=crop',
       seats: 5,
       fuel: 'Hybrid',
       transmission: 'Automatic',
@@ -26,7 +27,7 @@ const Rentals = () => {
       name: 'Honda CR-V 2023',
       category: 'suv',
       price: 85,
-      image: 'https://di-uploads-pod16.dealerinspire.com/pattypeckhonda/uploads/2019/12/A-2020-Honda-CR-V-Touring-parked-on-a-rooftop-in-a-city.png',
+      image: 'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=600&h=400&fit=crop',
       seats: 7,
       fuel: 'Gasoline',
       transmission: 'Automatic',
@@ -38,7 +39,7 @@ const Rentals = () => {
       name: 'Tesla Model 3 2023',
       category: 'electric',
       price: 120,
-      image: 'https://www.copilotsearch.com/uploads/2022_tesla_model_3.webp',
+      image: 'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=600&h=400&fit=crop',
       seats: 5,
       fuel: 'Electric',
       transmission: 'Automatic',
@@ -50,7 +51,7 @@ const Rentals = () => {
       name: 'Ford Mustang 2023',
       category: 'sports',
       price: 150,
-      image: 'https://cmhford.co.za/wp-content/uploads/2024/12/IMAGE-5_n.webp',
+      image: 'https://images.unsplash.com/photo-1611245801732-c7f76378e9b6?w=600&h=400&fit=crop',
       seats: 4,
       fuel: 'Gasoline',
       transmission: 'Manual',
@@ -62,7 +63,7 @@ const Rentals = () => {
       name: 'BMW X5 2023',
       category: 'luxury',
       price: 180,
-      image: 'https://motormatch.com/uploads/p90331850-highres-the-bmw-x5-m50d.jpg',
+      image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&h=400&fit=crop',
       seats: 7,
       fuel: 'Gasoline',
       transmission: 'Automatic',
@@ -74,7 +75,7 @@ const Rentals = () => {
       name: 'Nissan Sentra 2023',
       category: 'sedan',
       price: 55,
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/2021_Nissan_Sentra_SR_in_Electric_Blue%2C_front_left%2C_2021-10-03.jpg/330px-2021_Nissan_Sentra_SR_in_Electric_Blue%2C_front_left%2C_2021-10-03.jpg',
+      image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600&h=400&fit=crop',
       seats: 5,
       fuel: 'Gasoline',
       transmission: 'CVT',
@@ -86,7 +87,7 @@ const Rentals = () => {
       name: 'Audi Q7 2023',
       category: 'luxury',
       price: 200,
-      image: 'https://hips.hearstapps.com/hmg-prod/images/2020-audi-q7-208-1584322589.jpg?crop=0.927xw:0.782xh;0.0733xw,0.181xh&resize=1200:*',
+      image: 'https://images.unsplash.com/photo-1606225457115-9b0de873c5db?w=600&h=400&fit=crop',
       seats: 7,
       fuel: 'Gasoline',
       transmission: 'Automatic',
@@ -98,7 +99,7 @@ const Rentals = () => {
       name: 'Chevrolet Tahoe 2023',
       category: 'suv',
       price: 110,
-      image: 'https://www.chevrolet.com/content/dam/chevrolet/na/us/english/index/index-sub-content/rotator/01-images/v2/26-ch-suv-suburban-rotator.png?imwidth=1920',
+      image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop',
       seats: 8,
       fuel: 'Gasoline',
       transmission: 'Automatic',
@@ -110,7 +111,7 @@ const Rentals = () => {
       name: 'Porsche 911 2023',
       category: 'sports',
       price: 250,
-      image: 'https://hips.hearstapps.com/hmg-prod/images/2023-porsche-911-carrera-t-692-652e8b769d650.jpg?crop=0.511xw:0.384xh;0.272xw,0.513xh&resize=1200:*',
+      image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=600&h=400&fit=crop',
       seats: 2,
       fuel: 'Gasoline',
       transmission: 'PDK',
@@ -138,66 +139,105 @@ const Rentals = () => {
       v.transmission.toLowerCase().includes(q) ||
       v.category.toLowerCase().includes(q)
 
-    // If both dates are provided, require the vehicle to be available (simple availability check)
     const matchesDates = startDate === '' || endDate === '' ? true : v.available
 
     return matchesCategory && matchesQuery && matchesDates
   })
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-[#050B14] pb-24 text-gray-200">
       {/* Header */}
-      <div className="bg-linear-to-r from-[#0A1F44] to-[#1a3a6a] text-white py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Vehicle Rentals</h1>
-          <p className="text-xl text-gray-200">Choose from our premium fleet of well-maintained vehicles</p>
+      <div className="relative bg-gradient-to-r from-[#09152C] to-[#0A1F44] border-b border-white/5 py-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#00E5FF]/5 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-[#00E5FF] text-xs font-semibold uppercase tracking-wider block mb-2">Bespoke Fleet</span>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4">Premium Rentals</h1>
+            <p className="text-gray-400 text-lg md:text-xl max-w-2xl">
+              Select comfort, security, and elegance from our highly verified rental catalog.
+            </p>
+          </motion.div>
         </div>
       </div>
 
-      {/* Search Bar */}
-      <div className="max-w-7xl mx-auto px-6 -mt-8">
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      {/* Search Bar / Filter Panel */}
+      <div className="max-w-7xl mx-auto px-6 -mt-10 relative z-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="bg-[#0F2143] border border-white/10 rounded-2xl shadow-2xl p-6"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
             <div className="relative">
-              <FaSearch className="absolute left-3 top-3 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search vehicles..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#4DA3FF]"
-              />
+              <label className="block text-xs text-gray-400 mb-2 font-medium">Search Keyword</label>
+              <div className="relative">
+                <FaSearch className="absolute left-3 top-3.5 text-gray-400 text-sm" />
+                <input
+                  type="text"
+                  placeholder="e.g. Tesla, Hybrid..."
+                  value={searchText}
+                  onChange={(e) => setSearchText(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 bg-[#09152C] border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#00E5FF] text-sm transition-colors"
+                />
+              </div>
             </div>
+
             <div className="relative">
-              <FaCalendarAlt className="absolute left-3 top-3 text-gray-400" />
-              <input
-                type="date"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#4DA3FF]"
-              />
+              <label className="block text-xs text-gray-400 mb-2 font-medium">Pickup Date</label>
+              <div className="relative">
+                <FaCalendarAlt className="absolute left-3 top-3.5 text-gray-400 text-sm" />
+                <input
+                  type="date"
+                  value={startDate}
+                  onChange={(e) => setStartDate(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2.5 bg-[#09152C] border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#00E5FF] text-sm transition-colors"
+                />
+              </div>
             </div>
+
             <div className="relative">
-              <FaCalendarAlt className="absolute left-3 top-3 text-gray-400" />
-              <input
-                type="date"
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#4DA3FF]"
-              />
+              <label className="block text-xs text-gray-400 mb-2 font-medium">Dropoff Date</label>
+              <div className="relative">
+                <FaCalendarAlt className="absolute left-3 top-3.5 text-gray-400 text-sm" />
+                <input
+                  type="date"
+                  value={endDate}
+                  onChange={(e) => setEndDate(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2.5 bg-[#09152C] border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#00E5FF] text-sm transition-colors"
+                />
+              </div>
             </div>
-            <button className="bg-[#4DA3FF] text-white px-6 py-2 rounded-lg hover:bg-blue-500 transition">
-              Search
-            </button>
+
+            <div>
+              <button 
+                onClick={() => { setSearchText(''); setStartDate(''); setEndDate(''); }}
+                className="w-full bg-white/5 border border-white/10 hover:bg-[#00E5FF] hover:text-[#09152C] hover:border-[#00E5FF] text-white py-3 rounded-xl text-sm font-bold transition-premium cursor-pointer"
+              >
+                Reset Filters
+              </button>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      {/* Categories */}
+      {/* Categories Panel */}
       <div className="max-w-7xl mx-auto px-6 mt-12">
-        <div className="flex flex-wrap gap-4 justify-center">
+        <div className="flex flex-wrap gap-3 justify-center md:justify-start">
           {categories.map(category => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-3 rounded-full font-medium transition ${
+              className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-premium ${
                 selectedCategory === category.id
-                  ? 'bg-[#4DA3FF] text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100'
+                  ? 'bg-[#00E5FF] text-[#09152C]'
+                  : 'bg-[#0F2143]/40 border border-white/5 text-gray-300 hover:bg-[#0F2143] hover:text-white'
               }`}
             >
               {category.name}
@@ -207,59 +247,87 @@ const Rentals = () => {
       </div>
 
       {/* Vehicle Grid */}
-      <div className="max-w-7xl mx-auto px-6 mt-12 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredVehicles.map(vehicle => (
-            <div key={vehicle.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-              <div className="relative">
-                <img 
-                  src={vehicle.image} 
-                  alt={vehicle.name}
-                  className="w-full h-48 object-cover"
-                />
-                {!vehicle.available && (
-                  <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm">
-                    Not Available
+      <div className="max-w-7xl mx-auto px-6 mt-12">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredVehicles.map(vehicle => (
+              <motion.div 
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4 }}
+                key={vehicle.id} 
+                className="bg-[#0F2143]/40 border border-white/5 rounded-2xl overflow-hidden hover:border-[#00E5FF]/20 hover:shadow-card-glow transition-premium flex flex-col h-full"
+              >
+                <div className="relative overflow-hidden h-52">
+                  <img 
+                    src={vehicle.image} 
+                    alt={vehicle.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                  {!vehicle.available && (
+                    <div className="absolute top-4 right-4 bg-red-600/90 backdrop-blur-md text-white text-xs font-bold uppercase px-3 py-1 rounded-full border border-red-500/20">
+                      Not Available
+                    </div>
+                  )}
+                  {vehicle.available && (
+                    <div className="absolute top-4 right-4 bg-green-600/90 backdrop-blur-md text-white text-xs font-bold uppercase px-3 py-1 rounded-full border border-green-500/20">
+                      Available
+                    </div>
+                  )}
+                  <div className="absolute bottom-4 left-4 bg-[#09152C]/95 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-xl">
+                    <span className="font-extrabold text-[#00E5FF] text-lg">${vehicle.price}</span>
+                    <span className="text-gray-400 text-xs font-medium">/day</span>
                   </div>
-                )}
-                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full">
-                  <span className="font-bold text-[#0A1F44]">${vehicle.price}/day</span>
                 </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-[#0A1F44] mb-2">{vehicle.name}</h3>
                 
-                <div className="flex items-center mb-4">
-                  <div className="flex text-yellow-400">
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar key={i} className={i < Math.floor(vehicle.rating) ? '' : 'text-gray-300'} />
-                    ))}
-                  </div>
-                  <span className="ml-2 text-gray-600">{vehicle.rating}</span>
-                </div>
+                <div className="p-6 flex flex-col grow justify-between">
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">{vehicle.name}</h3>
+                    
+                    <div className="flex items-center mb-4">
+                      <div className="flex text-yellow-400 text-sm">
+                        {[...Array(5)].map((_, i) => (
+                          <FaStar key={i} className={i < Math.floor(vehicle.rating) ? 'mr-0.5' : 'text-gray-600 mr-0.5'} />
+                        ))}
+                      </div>
+                      <span className="ml-2 text-xs text-gray-400 font-semibold">{vehicle.rating}</span>
+                    </div>
 
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="flex items-center text-gray-600">
-                    <FaUsers className="mr-2" />
-                    <span>{vehicle.seats} Seats</span>
+                    <div className="grid grid-cols-3 gap-2 mb-6 text-xs text-gray-400">
+                      <div className="flex items-center justify-center bg-white/5 py-2 px-1 rounded-lg">
+                        <FaUsers className="mr-1.5 text-[#00E5FF]" />
+                        <span>{vehicle.seats} Seats</span>
+                      </div>
+                      <div className="flex items-center justify-center bg-white/5 py-2 px-1 rounded-lg">
+                        <FaGasPump className="mr-1.5 text-[#00E5FF]" />
+                        <span>{vehicle.fuel}</span>
+                      </div>
+                      <div className="flex items-center justify-center bg-white/5 py-2 px-1 rounded-lg">
+                        <FaCogs className="mr-1.5 text-[#00E5FF]" />
+                        <span>{vehicle.transmission}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center text-gray-600">
-                    <FaGasPump className="mr-2" />
-                    <span>{vehicle.fuel}</span>
-                  </div>
-                </div>
 
-                <Link 
-                  to={`/rentals/${vehicle.id}`}
-                  className="block w-full bg-[#4DA3FF] text-white text-center py-2 rounded-lg hover:bg-blue-500 transition"
-                >
-                  {vehicle.available ? 'Book Now' : 'View Details'}
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+                  <Link 
+                    to={`/rentals/${vehicle.id}`}
+                    className="block w-full bg-[#00E5FF] hover:bg-white hover:text-[#09152C] hover:shadow-glow text-[#09152C] font-bold text-center py-3 rounded-xl transition-premium text-sm"
+                  >
+                    {vehicle.available ? 'Book Online Now' : 'Inquire Details'}
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+        {filteredVehicles.length === 0 && (
+          <div className="text-center py-20 bg-[#0F2143]/20 border border-white/5 rounded-2xl mt-8">
+            <h3 className="text-xl font-bold text-white mb-2">No Vehicles Found</h3>
+            <p className="text-gray-400">Try adjusting your search criteria or resetting filters.</p>
+          </div>
+        )}
       </div>
     </div>
   )
